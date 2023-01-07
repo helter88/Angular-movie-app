@@ -8,9 +8,10 @@ import { Movie } from '../models/movie';
 })
 export class MoviesService {
   apiUrl = environment.apiUrl;
+  apiKey = environment.apiKey;
   constructor(private http: HttpClient) {}
 
-  getMovies() {
-    return this.http.get(this.apiUrl);
+  getMovies(type: string = 'upcoming') {
+    return this.http.get(this.apiUrl + `/${type}?api_key=${this.apiKey}`);
   }
 }
