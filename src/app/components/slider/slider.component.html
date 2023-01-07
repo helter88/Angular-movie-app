@@ -1,28 +1,30 @@
 <div class="slider">
-  <div class="slide">
-    <div class="slide-bg">
-      <img
-        class="slide-bg-image"
-        src="https://image.tmdb.org/t/p/original//r9PkFnRUIthgBp2JZZzD380MWZy.jpg"
-        alt=""
-      />
-      <div class="slide-pane">
-        <h2 class="name">The movie name</h2>
-        <div class="meta">
-          <div class="info">
-            <span class="rating">
-              <span class="app-icon">star</span
-              ><span class="rating-value">7.5</span><span>/10</span>
-            </span>
-            <span>463 Reviews</span>
-            <span>2021</span>
+  <ng-container *ngFor="let item of items; let i = index">
+    <div class="slide" *ngIf="i === currentSlideNumber">
+      <div class="slide-bg">
+        <img
+          class="slide-bg-image"
+          [src]="'https://image.tmdb.org/t/p/original/' + item.backdrop_path"
+          alt=""
+        />
+        <div class="slide-pane">
+          <h2 class="name">{{ item.title }}</h2>
+          <div class="meta">
+            <div class="info">
+              <span class="rating">
+                <span class="app-icon">star</span
+                ><span class="rating-value">{{ item.vote_average }}</span
+                ><span>/10</span>
+              </span>
+              <span>{{ item.vote_count }}</span>
+              <span>{{ item.release_date | date : "YYYY" }}</span>
+            </div>
           </div>
-        </div>
-        <div class="desc mt-6">
-          A woman whose visit to a hair salon turns into a nightmare when she is
-          blackmailed by its owner.
+          <div class="desc mt-6">
+            {{ item.overview }}
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </ng-container>
 </div>
