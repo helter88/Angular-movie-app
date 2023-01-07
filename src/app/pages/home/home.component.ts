@@ -17,12 +17,12 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.moviesService
       .getMovies('popular')
-      .subscribe((resp) => (this.popularMovies = resp.results));
+      .subscribe((movies) => (this.popularMovies = movies));
     this.moviesService
       .getMovies('upcoming')
-      .subscribe((resp) => (this.upComingMovies = resp.results));
+      .subscribe((movies) => (this.upComingMovies = movies));
     this.moviesService
       .getMovies('top_rated')
-      .subscribe((resp) => (this.topRatedMovies = resp.results));
+      .subscribe((movies) => (this.topRatedMovies = movies));
   }
 }
