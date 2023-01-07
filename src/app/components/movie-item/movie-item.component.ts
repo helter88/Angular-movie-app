@@ -10,5 +10,5 @@ import { Movie } from '../../models/movie';
 export class MovieItemComponent {
   @Input() movieData: Movie | null = null;
 
-  imagesSizes = IMAGES_SIZES;
+  readonly imagesSizes = IMAGES_SIZES;
 }

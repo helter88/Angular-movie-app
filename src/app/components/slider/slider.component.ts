@@ -6,8 +6,8 @@ import {
   trigger,
 } from '@angular/animations';
 import { Component, Input } from '@angular/core';
-import { IMAGES_SIZES } from 'src/app/constants/images-sizes';
-import { Movie } from 'src/app/models/movie';
+import { IMAGES_SIZES } from '../../constants/images-sizes';
+import { Movie } from '../../models/movie';
 
 @Component({
   selector: 'app-slider',
@@ -23,7 +23,7 @@ import { Movie } from 'src/app/models/movie';
 export class SliderComponent {
   @Input() items: Movie[] = [];
   currentSlideNumber: number = 0;
-  imagesSizes = IMAGES_SIZES;
+  readonly imagesSizes = IMAGES_SIZES;
 
   ngOnInit(): void {
     setInterval(() => {
