@@ -9,7 +9,7 @@ import { MoviesService } from 'src/app/services/movies.service';
 })
 export class HomeComponent implements OnInit {
   popularMovies: Movie[] = [];
-  upcomingMovies: Movie[] = [];
+  upComingMovies: Movie[] = [];
   topRatedMovies: Movie[] = [];
 
   constructor(private moviesService: MoviesService) {}
@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
       .subscribe((resp: any) => (this.popularMovies = resp.results));
     this.moviesService
       .getMovies('upcoming')
-      .subscribe((resp: any) => (this.upcomingMovies = resp.results));
+      .subscribe((resp: any) => (this.upComingMovies = resp.results));
     this.moviesService
       .getMovies('top_rated')
       .subscribe((resp: any) => (this.topRatedMovies = resp.results));
