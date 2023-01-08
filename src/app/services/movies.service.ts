@@ -21,6 +21,9 @@ export class MoviesService {
         })
       );
   }
+  getMovie(id: string): Observable<any> {
+    return this.http.get<Movie>(this.apiUrl + `/${id}?api_key=${this.apiKey}`);
+  }
 
   searchMovies(page: number): Observable<Movie[]> {
     return this.http
