@@ -22,9 +22,11 @@ export class MoviesService {
       );
   }
 
-  searchMovies(): Observable<Movie[]> {
+  searchMovies(page: number): Observable<Movie[]> {
     return this.http
-      .get<MovieDto>(this.apiUrl + `/popular?api_key=${this.apiKey}`)
+      .get<MovieDto>(
+        this.apiUrl + `/popular?page=${page}&api_key=${this.apiKey}`
+      )
       .pipe(
         switchMap((res) => {
           return of(res.results);
