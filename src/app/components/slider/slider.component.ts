@@ -22,12 +22,15 @@ import { Movie } from '../../models/movie';
 })
 export class SliderComponent {
   @Input() items: Movie[] = [];
+  @Input() isBaner: boolean = false;
   currentSlideNumber: number = 0;
   readonly imagesSizes = IMAGES_SIZES;
 
   ngOnInit(): void {
-    setInterval(() => {
-      this.currentSlideNumber = ++this.currentSlideNumber % this.items.length;
-    }, 5000);
+    if (!this.isBaner) {
+      setInterval(() => {
+        this.currentSlideNumber = ++this.currentSlideNumber % this.items.length;
+      }, 5000);
+    }
   }
 }
