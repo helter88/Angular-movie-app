@@ -11,7 +11,7 @@ import { MoviesService } from '../../services/movies.service';
 })
 export class MovieComponent implements OnInit {
   movieData: Movie | null = null;
-  movieVideos: MovieVideo[] | null = null;
+  movieVideos: MovieVideo[] = [];
   imagesSizes = IMAGES_SIZES;
 
   constructor(
@@ -23,6 +23,9 @@ export class MovieComponent implements OnInit {
     this.route.params.subscribe(({ id }) => {
       this.moviesService.getMovie(id).subscribe((movie) => {
         this.movieData = movie;
+        this.moviesService.getMovieVideos(id).subscribe((movieVideo) => {
+          this.movieVideos = movieVideo;
+        });
       });
     });
   }
