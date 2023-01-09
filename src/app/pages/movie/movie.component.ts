@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IMAGES_SIZES } from 'src/app/constants/images-sizes';
-import { Movie, SingleMovie } from '../../models/movie';
+import { Movie, MovieVideo, SingleMovie } from '../../models/movie';
 import { MoviesService } from '../../services/movies.service';
 
 @Component({
@@ -11,6 +11,7 @@ import { MoviesService } from '../../services/movies.service';
 })
 export class MovieComponent implements OnInit {
   movieData: Movie | null = null;
+  movieVideos: MovieVideo[] | null = null;
   imagesSizes = IMAGES_SIZES;
 
   constructor(
