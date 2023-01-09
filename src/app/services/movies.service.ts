@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { Movie, MovieDto } from '../models/movie';
+import { Movie, MovieDto, SingleMovie } from '../models/movie';
 import { Observable, of, switchMap } from 'rxjs';
 
 @Injectable({
@@ -21,7 +21,7 @@ export class MoviesService {
         })
       );
   }
-  getMovie(id: string): Observable<any> {
+  getMovie(id: string): Observable<Movie> {
     return this.http.get<Movie>(this.apiUrl + `/${id}?api_key=${this.apiKey}`);
   }
 

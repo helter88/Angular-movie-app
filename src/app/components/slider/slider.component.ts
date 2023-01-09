@@ -7,7 +7,7 @@ import {
 } from '@angular/animations';
 import { Component, Input } from '@angular/core';
 import { IMAGES_SIZES } from '../../constants/images-sizes';
-import { Movie } from '../../models/movie';
+import { Movie, SingleMovie } from '../../models/movie';
 
 @Component({
   selector: 'app-slider',
