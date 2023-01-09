@@ -7,6 +7,7 @@ import {
   MovieVideoDto,
   MovieVideo,
   MovieImages,
+  MovieCredits,
 } from '../models/movie';
 import { Observable, of, switchMap } from 'rxjs';
 
