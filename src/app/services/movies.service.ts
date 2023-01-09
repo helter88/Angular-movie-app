@@ -1,7 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { Movie, MovieDto, MovieVideoDto, MovieVideo } from '../models/movie';
+import {
+  Movie,
+  MovieDto,
+  MovieVideoDto,
+  MovieVideo,
+  MovieImages,
+} from '../models/movie';
 import { Observable, of, switchMap } from 'rxjs';
 
 @Injectable({
@@ -33,6 +39,12 @@ export class MoviesService {
           return of(res.results);
         })
       );
+  }
+
+  getMovieImages(id: string): Observable<MovieImages> {
+    return this.http.get<MovieImages>(
+      this.apiUrl + `/${id}/images?api_key=${this.apiKey}`
+    );
   }
 
   searchMovies(page: number): Observable<Movie[]> {
