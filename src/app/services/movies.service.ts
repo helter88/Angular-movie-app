@@ -46,6 +46,11 @@ export class MoviesService {
       this.apiUrl + `/${id}/images?api_key=${this.apiKey}`
     );
   }
+  getMovieCredits(id: string): Observable<MovieCredits> {
+    return this.http.get<MovieCredits>(
+      this.apiUrl + `/${id}/credits?api_key=${this.apiKey}`
+    );
+  }
 
   searchMovies(page: number): Observable<Movie[]> {
     return this.http
