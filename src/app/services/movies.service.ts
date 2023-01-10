@@ -44,7 +44,10 @@ export class MoviesService {
   }
   getMovieGenres(): Observable<Genre[]> {
     return this.http
-      .get<GenresDto>(this.apiUrl + `/genre/movie/list?api_key=${this.apiKey}`)
+      .get<GenresDto>(
+        this.apiUrl.replace('/movie', '/genre') +
+          `/movie/list?api_key=${this.apiKey}`
+      )
       .pipe(
         switchMap((res) => {
           return of(res.genres);
