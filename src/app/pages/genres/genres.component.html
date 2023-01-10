@@ -1,3 +1,8 @@
-<pre>
-    {{ genres | json }}
-</pre>
+<div class="container">
+  <h1>Movies Categories</h1>
+  <div class="grid">
+    <div class="col-6 md:col-3 lg:col-2" *ngFor="let cat of genres">
+      <a class="cat-link">{{ cat.name }}</a>
+    </div>
+  </div>
+</div>
