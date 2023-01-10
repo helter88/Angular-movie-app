@@ -10,6 +10,7 @@ import {
   MovieCredits,
 } from '../models/movie';
 import { Observable, of, switchMap } from 'rxjs';
+import { Genre, GenresDto } from '../models/genre';
 
 @Injectable({
   providedIn: 'root',
@@ -38,6 +39,15 @@ export class MoviesService {
       .pipe(
         switchMap((res) => {
           return of(res.results);
+        })
+      );
+  }
+  getMovieGenres(): Observable<Genre[]> {
+    return this.http
+      .get<GenresDto>(this.apiUrl + `/genre/movie/list?api_key=${this.apiKey}`)
+      .pipe(
+        switchMap((res) => {
+          return of(res.genres);
         })
       );
   }
