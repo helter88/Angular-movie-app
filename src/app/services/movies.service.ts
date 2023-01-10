@@ -55,6 +55,19 @@ export class MoviesService {
       );
   }
 
+  getMoviesByCategory(catId: string, pageNumber: number): Observable<Movie[]> {
+    return this.http
+      .get<MovieDto>(
+        this.apiUrl.replace('/movie', '/discover') +
+          `/movie?with_genres=${catId}&page=${pageNumber}&api_key=${this.apiKey}`
+      )
+      .pipe(
+        switchMap((res) => {
+          return of(res.results);
+        })
+      );
+  }
+
   getMovieImages(id: string): Observable<MovieImages> {
     return this.http.get<MovieImages>(
       this.apiUrl + `/${id}/images?api_key=${this.apiKey}`
