@@ -12,6 +12,7 @@ import { MoviesService } from '../../services/movies.service';
 export class MoviesComponent implements OnInit {
   movies: Movie[] = [];
   categoryId: string | null = null;
+  inputData: string | undefined;
   constructor(
     private moviesService: MoviesService,
     private route: ActivatedRoute
@@ -26,6 +27,10 @@ export class MoviesComponent implements OnInit {
         this.getPagedMovies(1);
       }
     });
+  }
+
+  onInputChange() {
+    console.log(this.inputData);
   }
 
   getPagedMovies(page: number) {
