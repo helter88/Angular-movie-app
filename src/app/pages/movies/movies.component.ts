@@ -30,12 +30,12 @@ export class MoviesComponent implements OnInit {
   }
 
   onInputChange() {
-    console.log(this.inputData);
+    this.getPagedMovies(1, this.inputData);
   }
 
-  getPagedMovies(page: number) {
+  getPagedMovies(page: number, searchKeyword?: string) {
     this.moviesService
-      .searchMovies(page)
+      .searchMovies(page, searchKeyword)
       .subscribe((item) => (this.movies = item));
   }
 
@@ -49,6 +49,8 @@ export class MoviesComponent implements OnInit {
     const pageNumber = event.page + 1;
     if (this.categoryId) {
       this.getMoviesByCategory(this.categoryId, pageNumber);
+    } else if (this.inputData) {
+      this.getPagedMovies(pageNumber, this.inputData);
     } else {
       this.getPagedMovies(pageNumber);
     }

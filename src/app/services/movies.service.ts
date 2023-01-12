@@ -79,10 +79,12 @@ export class MoviesService {
     );
   }
 
-  searchMovies(page: number): Observable<Movie[]> {
+  searchMovies(page: number, searchValue?: string): Observable<Movie[]> {
+    const uri = searchValue ? '/search/movie' : '/movie/popular';
     return this.http
       .get<MovieDto>(
-        this.apiUrl + `/popular?page=${page}&api_key=${this.apiKey}`
+        this.apiUrl.replace('/movie', uri) +
+          `?page=${page}&query=${searchValue}&api_key=${this.apiKey}`
       )
       .pipe(
         switchMap((res) => {
