@@ -1,27 +1,41 @@
-# MovieApp
+# MOVIE App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
+<img src="./readme_images/movie-main.PNG" alt="project image">
+> This applicattion has information about movies
 
-## Development server
+> App can run only localy on your computer.
+
+## Description
+
+The purpose of application is to fetch the movies and displaying them in nice way. It was build during the udemy course: Angular 15 - Beginner Practical Guide [2023] by Fadi Nouh
+
+## How to run app
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Navigation to different routes
+- Animated slider baner with changing movies
+- Display movies from three different categories
+- Search movie
+- Pagination
+- Clicable card to see movie details
+- Page with movie details
+- Tabs component
+- Carousel with Actors
+- Display categories
+- Choose movies by category
+- Display movies by category
+- Show movie trailers
+- Show movie photos
 
-## Build
+## Built using
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Angular 15.1.1
+- Typescript 4.8.4
+- RxJS 7.5.7
+- SCSS
+- PrimeFlex
+- PrimeNG
+- [TMDB API](https://www.themoviedb.org/documentation/api "click to visit API website")
